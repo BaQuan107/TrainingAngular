@@ -1,4 +1,32 @@
 <p>rooms works!</p>
 <p>{{hotelName}}</p>
-Number of Room:
-<div [innerText]="numberRoom"></div>
+<div [hidden]="hideRoom">
+    Number of Room:
+
+    <div [innerText]="numberRoom"></div>
+</div>
+Available Room:
+{{ rooms.availableRooms > 0 ? rooms?.availableRooms : 'No rooms' }}
+<div *ngIf="rooms.availableRooms > 0; else noRooms">
+    Room List
+    <table>
+        <tr>
+            <th>Room Number</th>
+            <th>Room Type</th>
+            <th>Room Price</th>
+            <th>Room Amenities</th>
+        </tr>
+        <tr *ngFor="let room of roomList">
+            <th>{{room.roomNumber }}</th>
+            <th>{{room.roomType }}</th>
+            <th>{{room.price }}</th>
+            <th>{{room.amenities }}</th>
+        </tr>
+    </table>
+
+</div>
+<ng-template #noRooms>
+    <p>No rooms</p>
+</ng-template>
+<br>
+<button (click)="toggle()">Toggle</button>

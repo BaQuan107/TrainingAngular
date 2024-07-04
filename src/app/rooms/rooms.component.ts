@@ -8,8 +8,33 @@ import { RoomList } from './room';
 })
 export class RoomsComponent implements OnInit{
 
-  ngOnInit(): void {
+  roomList: RoomList[] =[];
     
+  
+  ngOnInit(): void {
+    this.roomList = [{
+      roomNumber: 1,
+      roomType: "Delux",
+      amenities:"air",
+      price:500,
+      rating: 4.5
+
+    },
+    {
+      roomNumber: 2,
+      roomType: "Normal",
+      amenities:"air",
+      price:300,
+      rating: 4
+
+    },
+    {
+      roomNumber: 3,
+      roomType: "VIP",
+      amenities:"air",
+      price:1000,
+      rating: 5
+    },]
   }
   rooms: Room = {
     totalRooms: 20,
@@ -17,22 +42,7 @@ export class RoomsComponent implements OnInit{
     bookedRooms: 5,
   }
 
-  roomList: RoomList[] =[
-    {
-      roomNumber: 1,
-      roomType: "Delux",
-      amenities:"air",
-      price:500
-
-    },
-    {
-      roomNumber: 2,
-      roomType: "Normal",
-      amenities:"air",
-      price:500
-
-    },
-  ];
+  
   hotelName = "hihi";
   numberRoom= this.rooms.totalRooms;
   hideRoom = false

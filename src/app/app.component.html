@@ -1,9 +1,9 @@
 <h2>Products</h2>
 <div *ngFor="let product of products">
   <h2><a [title]="product.name + ' details'">
-    {{ product.name }}
-  </a>
-    
+      {{ product.name }}
+    </a>
+
   </h2>
   <p>Price: {{ product.price }}</p>
   <p *ngIf="product.description">
@@ -14,3 +14,9 @@
   </button>
 </div>
 <app-rooms></app-rooms>
+
+<!-- <div [ngSwitch]="role">
+  <div *ngSwitchCase="'User'">Welcome User</div>
+  <div *ngSwitchCase="'Admin'"></div>
+  <div *ngSwitchDefault>Not Author</div>
+</div> -->

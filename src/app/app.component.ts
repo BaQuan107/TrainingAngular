@@ -36,6 +36,8 @@ export class AppComponent {
     window.alert('The product has been shared!');
   }
   
+  role ="Admin";
+
 
 
 }

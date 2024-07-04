@@ -9,6 +9,6 @@ export interface RoomList {
     roomType: string;
     amenities: string;
     price: number;
-    
+    rating: number;
     
 }

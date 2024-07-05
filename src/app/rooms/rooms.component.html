@@ -5,18 +5,24 @@
 <div [hidden]="hideRoom">
     Number of Room:
 
-    <div [ngStyle]="{'color' : rooms.availableRooms ? 'red' : 'green'}" 
+    <div [ngStyle]="{'color' : rooms.availableRooms ? 'green' : 'red'}" 
     [innerText]="numberRoom"></div>
 </div>
 <!-- {{roomList |json}} -->
 Available Room:
 {{ rooms.availableRooms > 0 ? rooms?.availableRooms : 'No rooms' }}
-<div *ngIf="rooms.availableRooms > 0; else noRooms">
-    <app-room-list [rooms]="roomList"></app-room-list>
-
+<div *ngIf="selectedRoom">
+    {{selectedRoom|json}}
 </div>
-<ng-template #noRooms>
+
+<div><button (click)="addRoom()">Add Room
+
+</button></div>
+<div *ngIf="availableRooms > 0; else noRooms">
+    <app-room-list [rooms]="roomList" (selectedRoom)="selectRoom($event)"></app-room-list>
+  </div>
+  <ng-template #noRooms>
     <p>No rooms</p>
-</ng-template>
+  </ng-template>
 <br>
 <button (click)="toggle()">Toggle</button>

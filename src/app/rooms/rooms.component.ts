@@ -51,5 +51,23 @@ export class RoomsComponent implements OnInit{
     this.hideRoom = !this.hideRoom;
   }
 
-  
+  selectRoom(room:RoomList){
+    this.selectedRoom= room;
+    
+  }
+  get availableRooms(): number {
+    return this.roomList.length;
+  }
+  selectedRoom!: RoomList;
+  addRoom(){
+    const room: RoomList={
+      roomNumber: 4,
+      roomType: "Normal",
+      amenities:"air",
+      price:200,
+      rating: 4
+    }
+    //this.roomList.push(room);
+    this.roomList = [...this.roomList,room]
+  }
 }

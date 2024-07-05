@@ -9,6 +9,7 @@ Room List
             <th>Room Price</th>
             <th>Room Amenitiess</th>
             <th>Rating</th>
+            <th>Selected Room </th>
         </tr>
         <tr 
         [ngClass]="e ? 'even' : 'odd'"
@@ -19,5 +20,11 @@ Room List
             <th>{{room.roomType }}</th>
             <th>{{room.price |currency   }}</th>
             <th>{{room.amenities | titlecase}}</th>
+            <th>{{room.rating}}</th>
+
+            <th><button class="btn btn-primary"
+                (click)="selectRoom(room)">
+                Select
+            </button></th>
         </tr>
     </table>
